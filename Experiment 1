@@ -1,0 +1,71 @@
+Jacobi
+function[x,k]=Jacobi(A,b,epsilon);
+loop = true;
+k = 0;
+while loop == true
+    if k == 0
+        x1 = 0;
+        x2 = 0;
+        x3 = 0;
+    else
+    end
+        x1n = (1/A(1,1))*((b(1,1)-(A(1,2)*x2))-(A(1,3)*x3));
+        x2n = (1/A(2,2))*((b(2,1)-(A(2,1)*x1))-(A(2,3)*x3));
+        x3n = (1/A(3,3))*((b(3,1)-(A(3,1)*x1))-(A(3,2)*x2));
+        
+    err1 = abs(x1n-x1);
+    err2 = abs(x2n-x2);
+    err3 = abs(x3n-x3);
+    
+    x1=x1n;
+    x2=x2n;
+    x3=x3n;
+    
+    if err1<=epsilon && err2<=epsilon && err3<=epsilon
+        loop = false;
+    end
+    
+    k=1+k;
+end
+ 
+x=[x1,x2,x3];
+
+
+
+Gauss – Seidel
+
+function [x,k] = Gausseidel(A,b,epsilon)
+ 
+loop = true;
+k = 0;
+while loop == true
+    if k == 0
+        x1 = 0;
+        x2 = 0;
+        x3 = 0;
+    else
+    end
+        x1n = (1/A(1,1))*((b(1,1)-(A(1,2)*x2))-(A(1,3)*x3));
+        x2n = (1/A(2,2))*((b(2,1)-(A(2,1)*x1n))-(A(2,3)*x3));
+        x3n = (1/A(3,3))*((b(3,1)-(A(3,1)*x1n))-(A(3,2)*x2n));
+        
+    err1 = abs(x1n-x1);
+    err2 = abs(x2n-x2);
+    err3 = abs(x3n-x3);
+    
+    x1=x1n;
+    x2=x2n;
+    x3=x3n;
+    
+    if err1<=epsilon && err2<=epsilon && err3<=epsilon
+        loop = false;
+    end
+    
+    k=1+k;
+end
+ 
+x=[x1,x2,x3];
+ 
+return
+
+
