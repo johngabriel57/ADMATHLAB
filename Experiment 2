@@ -73,3 +73,22 @@ if (fa*fb)<0
 else
     error('error interval.')
 end
+
+Number 3: Fixed Point
+a = input('Enter the value of your initial guess: ');
+e = input('Enter the value of the error tolerance: ');
+
+x1 = exp(exp(-a));
+fx1 = inf;
+k=0;
+while abs(fx1)>e
+    x1 = exp(exp(-a));
+    fx1= exp(-x1)-log(x1);
+    a=x1;
+    
+    k=k+1;
+    
+end
+   
+fprintf('Error tolerance: %.4f \n', e);
+fprintf('The root is %.8f after %.0f iterations using FIXED POINT ITERATION METHOD. \n', x1, k);
