@@ -50,28 +50,27 @@ end
 
 Number 2 : Function
 
-function[r,k]=polybisection(coef,a, b,epsilon)
+function[r,k]=polybisection2(coef,a, b,epsilon)
 fa=polyval(coef,a);
 fb=polyval(coef,b);
-fc1=inf;
 k1=0;
+fc1=inf;
 if (fa*fb)<0
     int1=[a,b];
-    %Bisection method
     while abs(fc1)>epsilon
         c1=(int1(1)+int1(2))/2;
-        fc1=exp(-c1)-log(c1);
+        fc1=polyval(coef,c1);
         if fc1>0
-            int1(1)=c1;
-        else
             int1(2)=c1;
+        else
+            int1(1)=c1;
         end
         k1=k1+1;
     end
     c1
     k1
 else
-    error('error interval.')
+    error('Interval Error.')
 end
 
 Number 3: Fixed Point
