@@ -41,15 +41,11 @@ if (fa*fb)<0
     fprintf('The root is %.8f after %.0f iterations using BISECTION METHOD. \n', c1, k1);
     fprintf('The root is %.8f after %.0f iterations using REGULA - FALSI METHOD. \n', c2, k2);
 else
-    error('error interval.')
+    error('Interval Error.')
 end
 
 
-
-
-
 Number 2 : Function
-
 function[r,k]=polybisection2(coef,a, b,epsilon)
 fa=polyval(coef,a);
 fb=polyval(coef,b);
