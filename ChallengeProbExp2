@@ -1,0 +1,15 @@
+Number 2: Newton Rhapson
+a = input('Enter the value of your initial guess: ');
+
+fx1 = inf;
+k=0;
+while k<4   
+    x1 = a-((a^3)+(2*a^2)+(10*a)-20)/((3*a^2)+(4*a)+10);
+    fx1= (x1^3)+(2*x1^2)+(10*x1)-(20);
+    a=x1;
+    
+    k=k+1;
+      
+end
+   
+fprintf('The root is %.8f after %.0f iterations using NEWTON RHAPSON ITERATION METHOD. \n', x1, k);
