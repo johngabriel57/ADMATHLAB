@@ -46,28 +46,30 @@ end
 
 
 Number 2 : Function
-function[r,k]=polybisection2(coef,a, b,epsilon)
+function[r,k]=polybisection(coef,a, b,epsilon)
 fa=polyval(coef,a);
 fb=polyval(coef,b);
-k1=0;
 fc1=inf;
+k=0;
 if (fa*fb)<0
-    int1=[a,b];
+    input1=[a,b];
+    
     while abs(fc1)>epsilon
-        c1=(int1(1)+int1(2))/2;
-        fc1=polyval(coef,c1);
+        r=(input1(1)+input1(2))/2;
+        fc1= polyval(coef,r);
         if fc1>0
-            int1(2)=c1;
+            input1(2)=r;
         else
-            int1(1)=c1;
+            input1(1)=r;
         end
-        k1=k1+1;
+        k=k+1;
     end
-    c1
-    k1
+    r
+    k
 else
     error('Interval Error.')
 end
+
 
 Number 3: Fixed Point
 a = input('Enter the value of your initial guess: ');
